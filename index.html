@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#15252b">
+<meta name="description" content="InkAndMilk: Astral Defense — космическая Tower Defense. PWA 0.6.1.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Astral Defense">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+<title>InkAndMilk · Astral Defense 0.6.1</title>
+<style>
+:root{color-scheme:dark;--text:#eaf6ef;--muted:#a8bfc1;--bg:#101c22;--panel:#20323b;--card:#253a40;--border:#44616a;--accent:#a7e6ce;--gold:#f1d48e}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 75% 0%,#203941,transparent 48%),#101c22;color:var(--text);font:14px/1.5 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.shell{width:min(100%,1020px);padding:15px clamp(10px,3vw,25px) 30px;margin:0 auto}.hidden{display:none!important}.masthead{display:flex;align-items:center;justify-content:space-between;gap:12px;border-bottom:1px solid #314952;padding-bottom:12px;margin-bottom:15px}.eyebrow,.overline{font-size:10px;letter-spacing:.16em;color:var(--accent);font-weight:750;text-transform:uppercase}.masthead h1{font-size:clamp(19px,3vw,28px);margin:3px 0 0;line-height:1.13;letter-spacing:.08em}.masthead h1 span{font-size:12px;color:var(--muted);font-weight:450;letter-spacing:0}.submark{font-size:12px;color:var(--muted)}.menu-screen{display:grid;gap:14px}.hero{min-height:330px;border:1px solid #477079;background:linear-gradient(110deg,rgba(17,37,49,.97) 30%,rgba(21,50,61,.68)),radial-gradient(ellipse at 80% 25%,#53758b,#1a3144 55%,#101c22);position:relative;overflow:hidden;border-radius:13px;display:flex;align-items:center}.hero::after{content:'✧   ✦         ✧     ·           ✦             ✧  ·';position:absolute;right:0;top:20px;width:45%;color:#b4e6eb;opacity:.5;font-size:24px;line-height:5}.orb{position:absolute;border-radius:50%;pointer-events:none}.orb-a{right:-45px;bottom:-125px;width:380px;height:380px;background:radial-gradient(circle at 36% 30%,#6e9f9f,#244f6c 38%,#112f51 65%,#142b3c);box-shadow:0 0 0 16px #91b8bf18,0 0 75px #6fcedb35}.orb-b{right:170px;top:27px;width:63px;height:63px;background:radial-gradient(circle at 35% 30%,#e2d5ba,#af8e9a 48%,#5e6382 80%)}.hero-inner{position:relative;z-index:1;padding:25px;width:min(670px,100%)}.hero h2{font-size:clamp(28px,5vw,48px);margin:8px 0 13px;line-height:1.06}.hero p:not(.overline){max-width:475px;color:#d4e8e7;font-size:15px}.menu-buttons{display:flex;flex-wrap:wrap;gap:8px;margin:23px 0 12px}.minor{font-size:12px!important;color:#b2cbd0!important}.instructions{border:1px solid var(--border);background:#1a2a31;border-radius:10px;padding:15px 18px}.instructions h3{font-size:15px;margin:0 0 7px}.instructions p{margin:6px 0;color:#c6d5d7}.btn{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:9px;min-height:43px;padding:10px 13px;font-size:13px;font-weight:650;cursor:pointer;touch-action:manipulation;white-space:normal}.btn.primary{background:#2b544d;border-color:#8cccb4;color:#f3fff8}.btn:disabled{opacity:.38;cursor:not-allowed}.btn:hover:not(:disabled){filter:brightness(1.13)}button:focus-visible,[role=button]:focus-visible{outline:2px solid #f6de9b;outline-offset:3px}.game-screen{display:grid;gap:10px}.topstats{display:flex;flex-wrap:wrap;align-items:center;gap:7px}.stat{display:flex;align-items:center;gap:5px;border:1px solid var(--border);background:#192a32;border-radius:7px;padding:6px 11px;font-variant-numeric:tabular-nums;font-size:13px}.stat strong{color:#fff}.stat span{color:var(--muted)}.pause-btn{margin-left:auto}.map-viewport{border:1px solid #4a6a6d;background:#19342c;border-radius:10px;overflow-x:auto;overscroll-behavior-x:contain}.map-viewport svg{display:block;width:100%;min-width:640px;height:auto}.battlecontrols{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}.status{font-weight:700;font-size:13px}.button-group{display:flex;gap:7px;align-items:center}.shop-title{font-size:11px;letter-spacing:.07em;color:#d0e9df;font-weight:800}.shop-title span{font-weight:400;letter-spacing:0;color:var(--muted);font-size:12px}.shop{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.shop button{border:1px solid var(--border);border-radius:8px;background:#243840;color:var(--text);padding:9px;min-width:0;min-height:64px;display:flex;flex-direction:column;gap:4px;text-align:left;justify-content:center;cursor:pointer;touch-action:manipulation}.shop button strong{font-size:12px;line-height:1.2}.shop button small{color:var(--muted);font-size:11px}.shop button[aria-pressed=true]{border-color:#a6ebcf;background:#2d4c47}.shop button:disabled{opacity:.45;cursor:not-allowed}.selection{border:1px solid var(--border);background:var(--panel);border-radius:9px;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px;flex-wrap:wrap}.selection-copy{min-width:0;flex:1 1 300px}.selection-copy strong{font-size:14px}.selection-copy p{font-size:13px;margin:5px 0 0;color:#c2d9df}.notice,.legend{font-size:12px;color:var(--muted);margin:0}.notice{min-height:18px}.footer{font-size:11px;color:#8eaaa7;margin-top:18px;padding-top:10px;border-top:1px solid #2c4245;display:flex;justify-content:space-between;flex-wrap:wrap;gap:7px}.dialog-backdrop{position:fixed;inset:0;z-index:20;background:rgba(7,15,21,.84);display:flex;align-items:center;justify-content:center;padding:18px;overflow:auto}.dialog{width:min(100%,460px);border:1px solid #5a8983;border-radius:14px;background:#1b3038;padding:23px;box-shadow:0 16px 50px #0007}.dialog h2{font-size:24px;margin:7px 0}.dialog p{color:#c0d2d2}.dialog-stats{font-size:13px;line-height:1.6;color:var(--gold);margin-bottom:12px}.dialogbuttons{display:grid;gap:8px}.entity,.enemy{cursor:pointer}.enemy:focus-visible,.entity:focus-visible{outline:2px solid #f3deac}@media(min-width:650px){.shop{grid-template-columns:repeat(6,minmax(0,1fr))}}@media(max-width:400px){.masthead h1{font-size:19px}.submark{font-size:10px}.topstats .stat{padding:6px 7px}.pause-btn{margin-left:0}.btn{padding:8px 10px}.hero-inner{padding:18px}.hero{min-height:360px}.orb-a{right:-160px}.orb-b{right:18px;top:25px}}
+
+/* PWA: update and install controls remain separate from game state. */
+.pwa-update{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px;padding:10px 12px;border:1px solid #658975;border-radius:9px;background:#213c36;color:#e6f5ed;font-size:13px}
+.pwa-update .btn{min-height:39px}
+.pwa-install{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.pwa-install .minor{max-width:370px}
+@media(max-width:560px){.pwa-update .btn{width:100%}.pwa-install{align-items:flex-start;flex-direction:column}}
+
+</style>
+</head>
+<body>
+<main class="shell" id="app">
+<header class="masthead"><div><div class="eyebrow">InkAndMilk · игровая лаборатория</div><h1>ASTRAL DEFENSE <span>0.6.1</span></h1></div><div class="submark">✧ Первый контакт</div></header>
+<div id="pwaUpdateNotice" class="pwa-update hidden" aria-live="polite"><span>Доступно обновление Astral Defense. Перед перезапуском игра сохранится.</span><button type="button" id="pwaUpdateButton" class="btn primary">Обновить игру</button></div>
+<section id="menuScreen" class="menu-screen">
+<div class="hero"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="hero-inner"><p class="overline">МИССИЯ 01 / ИССЛЕДОВАТЕЛЬСКИЙ ФОРПОСТ</p><h2>Первый контакт</h2><p>Останови вторжение. Сохрани 20 энергетических кристаллов и найди идеальные сочетания защитников и усилителей.</p><div class="menu-buttons"><button type="button" class="btn primary" id="newGame">▶ Начать игру</button><button type="button" class="btn" id="continueGame">↪ Продолжить</button><button type="button" class="btn" id="menuSound">🔊 Звук: вкл.</button></div><div class="pwa-install"><button type="button" class="btn hidden" id="pwaInstallButton">⬇ Установить приложение</button><span id="pwaInstallHint" class="minor hidden">На iPhone: открой игру в Safari → «Поделиться» → «На экран Домой».</span></div><p class="minor" id="saveInfo">Сохранение ещё не создано.</p></div></div>
+<div class="instructions"><h3>Как играть</h3><p>Выбирай бойцов и кристаллы под полем, затем нажимай на свободную землю. <strong>Красный</strong> усиливает урон, <strong>синий</strong> дальность, <strong>жёлтый</strong> скорость атаки. Улучшение кристалла немного увеличивает радиус: 110 → 120 → 130.</p><p>После установки объект нельзя перемещать или продавать. Побеждай врагов, зарабатывай монеты, прокачивай оборону и береги кристаллы базы. На волнах 5 и 10 появятся боссы.</p></div></section>
+<section id="gameScreen" class="game-screen hidden" aria-label="Игровое поле">
+<div class="topstats"><div class="stat">💎 <strong id="lives">20</strong><span>/20</span></div><div class="stat">🪙 <strong id="money">630</strong></div><div class="stat">🌊 <strong id="wave">0</strong><span>/10</span></div><div class="stat">👾 <strong id="enemyCount">0</strong></div><button id="pauseGame" type="button" class="btn pause-btn">Ⅱ Меню</button></div>
+<div class="map-viewport"><svg id="battleMap" viewBox="0 0 860 420" role="group" aria-label="Интерактивная карта. Выбери бойца или кристалл ниже и коснись травы, чтобы разместить." xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="ground" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#29483e"/><stop offset="1" stop-color="#1b303c"/></linearGradient><pattern id="mapGrid" width="43" height="43" patternUnits="userSpaceOnUse"><path d="M43 0H0V43" stroke="#b0c8b3" stroke-opacity=".09" fill="none"/></pattern><radialGradient id="core"><stop stop-color="#d6ffff"/><stop offset=".6" stop-color="#6ccef3"/><stop offset="1" stop-color="#155184"/></radialGradient></defs>
+<rect width="860" height="420" fill="url(#ground)"/><rect width="860" height="420" fill="url(#mapGrid)"/><g fill="#579c88" opacity=".37"><circle cx="160" cy="94" r="19"/><circle cx="201" cy="92" r="13"/><circle cx="284" cy="62" r="17"/><circle cx="733" cy="338" r="19"/><circle cx="684" cy="375" r="13"/><circle cx="803" cy="59" r="18"/><circle cx="635" cy="67" r="11"/></g><g fill="#ae92dc" opacity=".77"><path d="M220 94l10 -22 9 22 -9 10Z"/><path d="M716 352l8 -19 9 19 -9 10Z"/><path d="M658 78l9 -22 8 22 -8 8Z"/></g><g fill="#a0e0d2" opacity=".5"><circle cx="183" cy="121" r="4"/><circle cx="254" cy="81" r="4"/><circle cx="671" cy="90" r="4"/><circle cx="779" cy="355" r="5"/></g>
+<path d="M835 130H550V305H90" fill="none" stroke="#50473a" stroke-width="70" stroke-linecap="round" stroke-linejoin="round"/><path d="M835 130H550V305H90" fill="none" stroke="#b6a178" stroke-width="58" stroke-linecap="round" stroke-linejoin="round"/><path d="M835 130H550V305H90" fill="none" stroke="#e1cda3" stroke-width="46" stroke-linecap="round" stroke-linejoin="round"/><path d="M835 130H550V305H90" fill="none" stroke="#fff1ca" stroke-width="1.5" stroke-opacity=".55" stroke-dasharray="6 12"/>
+<g fill="#f2f5de" font-family="system-ui,sans-serif" font-size="12" font-weight="700"><text x="767" y="77">ВХОД ←</text><text x="39" y="371">◀ БАЗА</text></g><g transform="translate(82 305)"><circle r="30" fill="#0b4262" stroke="#bbebfa" stroke-width="2.4"/><circle r="21" fill="url(#core)" opacity=".75"/><path d="M0 -27L17 0 0 26 -17 0Z" fill="#7ce1ff" stroke="#e6ffff" stroke-width="2"/><path d="M0 -27V26M-17 0H17" stroke="#f0ffff" stroke-opacity=".6"/></g><g id="rangeLayer" pointer-events="none"></g><g id="unitLayer"></g><g id="effectLayer" pointer-events="none"></g><g id="enemyLayer"></g></svg></div>
+<div class="battlecontrols"><div id="battleStatus" class="status" aria-live="polite">Подготовка обороны</div><div class="button-group"><button id="startWave" type="button" class="btn primary">▶ Волна 1</button><button id="speed" type="button" class="btn">×1</button><button id="gameSound" type="button" class="btn" aria-label="Переключить звук">🔊</button></div></div>
+<div class="shop-title">ЗАЩИТНИКИ И УСИЛИТЕЛИ <span>выбери → установи на траву</span></div>
+<div class="shop" id="shop"><button type="button" data-type="trooper" aria-pressed="false"><strong>⚔ Штурмовик</strong><small>Физ · 100 🪙</small></button><button type="button" data-type="sniper" aria-pressed="false"><strong>⌖ Снайпер</strong><small>Крит · 150 🪙</small></button><button type="button" data-type="mage" aria-pressed="false"><strong>✦ Маг</strong><small>По площади · 200 🪙</small></button><button type="button" data-type="red" aria-pressed="false"><strong>🔴 Сила</strong><small>120 🪙</small></button><button type="button" data-type="blue" aria-pressed="false"><strong>🔵 Дальность</strong><small>120 🪙</small></button><button type="button" data-type="yellow" aria-pressed="false"><strong>🟡 Скорость</strong><small>120 🪙</small></button></div>
+<div class="selection"><div class="selection-copy"><strong id="selectedTitle">Выбор бойца</strong><p id="selectedDetail">Нажми на бойца или кристалл на поле, чтобы увидеть характеристики.</p></div><button id="upgrade" type="button" class="btn primary" disabled>Улучшить</button></div>
+<p class="notice" id="notice" aria-live="polite">Подготовь оборону перед первой волной.</p><p class="legend">⚔ Физический урон · ✦ Магический урон по площади · ⌖ Криты · ◆ Усиливающие кристаллы</p>
+</section>
+<footer class="footer">© 2026 InkAndMilk. All rights reserved. <span>Тестовая сборка · v0.6.1 · данные сохраняются только в этом браузере</span></footer>
+<div id="dialogBackdrop" class="dialog-backdrop hidden" role="presentation"><section class="dialog" role="dialog" aria-modal="true" aria-labelledby="dialogTitle"><div class="eyebrow">InkAndMilk · Astral Defense</div><h2 id="dialogTitle">Пауза</h2><p id="dialogText">Бой остановлен.</p><div id="dialogStats" class="dialog-stats"></div><div class="dialogbuttons" id="dialogButtons"></div></section></div>
+</main>
+<script>
+'use strict';
+(() => {
+  const app = document.getElementById('app');
+  const $ = (selector) => app.querySelector(selector);
+  const SAVE_KEY = 'inkandmilk:astral-defense:save:v1';
+  const SETTINGS_KEY = 'inkandmilk:astral-defense:settings:v1';
+  const VERSION = '0.6.1';
+  const CRYSTAL_RADII = [110, 120, 130];
+  const UNIT = {
+    trooper: {name:'Штурмовик',symbol:'Ш',color:'#e6b16a',cost:100,damage:32,range:96,rate:1.35,type:'physical'},
+    sniper: {name:'Снайпер',symbol:'С',color:'#91ccef',cost:150,damage:54,range:160,rate:.70,type:'physical'},
+    mage: {name:'Маг',symbol:'М',color:'#c9a4f0',cost:200,damage:40,range:120,rate:.90,type:'magic'},
+    red: {name:'Кристалл силы',symbol:'◆',color:'#f27d88',cost:120,crystal:true,radii:CRYSTAL_RADII,values:[20,30,45],effect:'урону'},
+    blue: {name:'Кристалл дальности',symbol:'◆',color:'#80c0ff',cost:120,crystal:true,radii:CRYSTAL_RADII,values:[15,25,35],effect:'дальности'},
+    yellow: {name:'Кристалл скорости',symbol:'◆',color:'#f4d074',cost:120,crystal:true,radii:CRYSTAL_RADII,values:[18,28,40],effect:'скорости'}
+  };
+  const FOE = {
+    scout: {name:'Разведчик',color:'#b09aec',hp:55,speed:55,reward:18,phys:10,magic:10,growth:17,size:10,leak:1},
+    runner: {name:'Бегун',color:'#ec9fc8',hp:47,speed:89,reward:21,phys:6,magic:10,growth:15,size:9,leak:1},
+    armored: {name:'Броненосец',color:'#d9a174',hp:130,speed:42,reward:33,phys:49,magic:12,growth:32,size:13,leak:2},
+    psionic: {name:'Псионик',color:'#84dbcc',hp:95,speed:65,reward:27,phys:12,magic:49,growth:24,size:11,leak:1},
+    boss5: {name:'Страж портала',color:'#f3b571',hp:490,speed:30,reward:170,phys:36,magic:25,growth:0,size:22,leak:4,boss:true},
+    boss10: {name:'Владыка разлома',color:'#ed80ae',hp:1100,speed:27,reward:400,phys:45,magic:40,growth:0,size:27,leak:6,boss:true}
+  };
+
+  const svg = $('#battleMap');
+  const unitLayer = $('#unitLayer');
+  const enemyLayer = $('#enemyLayer');
+  const rangeLayer = $('#rangeLayer');
+  const effectLayer = $('#effectLayer');
+  let soundOn = true;
+  let soundContext = null;
+  let lastAttackSound = 0;
+  let game = null;
+  let nextUnitId = 1;
+  let nextEnemyId = 1;
+  let animation = 0;
+  let frameLast = 0;
+  let hudElapsed = 0;
+  let saveElapsed = 0;
+  let screen = 'menu';
+  let message = '';
+  let overlayType = null;
+
+  function safeRead(key) { try { return localStorage.getItem(key); } catch (_) { return null; } }
+  function safeWrite(key,value) { try { localStorage.setItem(key,value); return true; } catch (_) { return false; } }
+  function savedRecord() {
+    try {
+      const data=JSON.parse(safeRead(SAVE_KEY));
+      if (!data || data.schema !== 1 || !data.game || !Array.isArray(data.game.units) || !Array.isArray(data.game.enemies)) return null;
+      if (data.game.units.length > 200 || data.game.enemies.length > 200 || data.game.wave < 0 || data.game.wave > 10) return null;
+      if (!Number.isFinite(data.game.money) || !Number.isFinite(data.game.lives)) return null;
+      if (data.game.units.some(u=>!UNIT[u.type] || !Number.isFinite(u.x) || !Number.isFinite(u.y) || ![1,2,3].includes(u.level))) return null;
+      if (data.game.enemies.some(e=>!FOE[e.type] || !Number.isFinite(e.hp) || !Number.isFinite(e.progress))) return null;
+      return data;
+    } catch (_) { return null; }
+  }
+  function saveGame() {
+    if (!game) return;
+    const copy = {
+      money:game.money,lives:game.lives,wave:game.wave,
+      phase:game.phase === 'running' ? 'paused' : game.phase,
+      speed:game.speed,units:game.units,enemies:game.enemies,
+      pending:game.pending,normalCount:game.normalCount,spawnIndex:game.spawnIndex,spawnClock:game.spawnClock,
+      kills:game.kills,crits:game.crits,leaks:game.leaks,bossLeaks:game.bossLeaks,
+      selectedUnit:game.selectedUnit
+    };
+    safeWrite(SAVE_KEY,JSON.stringify({schema:1,version:VERSION,savedAt:Date.now(),game:copy}));
+    syncMenu();
+  }
+  function loadSettings() {
+    try { const data = JSON.parse(safeRead(SETTINGS_KEY)); soundOn = data?.sound !== false; } catch (_) { soundOn=true; }
+    showSoundState();
+  }
+  function showSoundState() {
+    $('#menuSound').textContent = soundOn ? '🔊 Звук: вкл.' : '🔇 Звук: выкл.';
+    $('#gameSound').textContent = soundOn ? '🔊' : '🔇';
+    $('#gameSound').setAttribute('aria-label',soundOn?'Выключить звук':'Включить звук');
+  }
+  function toggleSound() {
+    soundOn=!soundOn;
+    safeWrite(SETTINGS_KEY,JSON.stringify({sound:soundOn}));
+    showSoundState();
+    if (soundOn) beep('click');
+  }
+  function beep(kind) {
+    if (!soundOn) return;
+    const now=performance.now();
+    if (kind==='shot' && now-lastAttackSound<135) return;
+    if (kind==='shot') lastAttackSound=now;
+    try {
+      const Audio = window.AudioContext || window.webkitAudioContext;
+      if (!Audio) return;
+      if (!soundContext) soundContext=new Audio();
+      if (soundContext.state==='suspended') { soundContext.resume().catch(()=>{}); return; }
+      const patterns={click:[520,610,.055,.055],place:[380,670,.11,.075],upgrade:[480,900,.16,.085],shot:[320,220,.045,.018],mage:[650,360,.13,.035],wave:[390,580,.22,.08],warning:[180,120,.36,.09],win:[510,960,.38,.08],lose:[210,105,.38,.075]};
+      const [start,end,duration,volume]=patterns[kind] || patterns.click;
+      const osc=soundContext.createOscillator(),gain=soundContext.createGain(),t=soundContext.currentTime;
+      osc.type=(kind==='shot'||kind==='warning')?'triangle':'sine';
+      osc.frequency.setValueAtTime(start,t);
+      osc.frequency.exponentialRampToValueAtTime(end,t+duration);
+      gain.gain.setValueAtTime(Math.max(.001,volume),t);
+      gain.gain.exponentialRampToValueAtTime(.001,t+duration);
+      osc.connect(gain).connect(soundContext.destination);
+      osc.start(t);osc.stop(t+duration+.01);
+    } catch (_) { /* No audio hardware/permission: visual gameplay stays functional. */ }
+  }
+
+  function syncMenu() {
+    const rec=savedRecord();
+    $('#continueGame').disabled=!rec;
+    if (!rec) { $('#saveInfo').textContent='Сохранение ещё не создано.'; return; }
+    const d=new Date(rec.savedAt);
+    const time=Number.isFinite(+d)?d.toLocaleString('ru-RU',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}):'ранее';
+    $('#saveInfo').textContent=`Последнее сохранение: волна ${rec.game.wave}/10, 💎 ${rec.game.lives}/20 · ${time}`;
+  }
+  function defaultGame() {
+    return {money:1200,lives:20,wave:0,phase:'ready',speed:1,units:[],enemies:[],pending:0,normalCount:0,spawnIndex:0,spawnClock:0,
+      kills:0,crits:0,leaks:0,bossLeaks:0,tool:null,selectedUnit:null,selectedEnemy:null,effects:[]};
+  }
+  function add(type,x,y) {
+    const u={id:nextUnitId++,type,x,y,level:1,cd:0};
+    game.units.push(u);game.money-=UNIT[type].cost;return u;
+  }
+  function startNew(withExample) {
+    if(savedRecord() && !window.confirm('Начать новую игру? Текущее сохранение будет заменено.')) return;
+    stopAnimation();
+    game=defaultGame();nextUnitId=1;nextEnemyId=1;
+    if(withExample){add('trooper',370,355);add('sniper',475,195);add('mage',425,353);game.selectedUnit=add('red',415,245).id;}
+    message=withExample?'Пример расстановки готов. Попробуй улучшить красный кристалл или запустить волну.':'Чистое поле. Выбери бойца или кристалл и установи его на траву.';
+    showGame();saveGame();beep('click');
+  }
+  function continueGame() {
+    const rec=savedRecord();if(!rec) {syncMenu();return;}
+    stopAnimation();game={...defaultGame(),...rec.game};
+    nextUnitId=Math.max(1,...game.units.map(u=>u.id+1));
+    nextEnemyId=Math.max(1,...game.enemies.map(e=>e.id+1));
+    game.selectedEnemy=null;game.tool=null;game.effects=[];
+    if(game.phase==='running') game.phase='paused';
+    message='Игра восстановлена из локального сохранения.';
+    showGame();
+    if(game.phase==='paused') openDialog('pause');
+    else if(game.phase==='won'||game.phase==='lost') openDialog('result');
+    beep('click');
+  }
+  function showGame() {
+    screen='game';$('#menuScreen').classList.add('hidden');$('#gameScreen').classList.remove('hidden');
+    closeDialog();renderAll();
+  }
+  function toMenu() {
+    stopAnimation();if(game?.phase==='running')game.phase='paused';saveGame();
+    screen='menu';closeDialog();$('#gameScreen').classList.add('hidden');$('#menuScreen').classList.remove('hidden');syncMenu();
+    beep('click');
+  }
+  function stopAnimation(){if(animation){cancelAnimationFrame(animation);animation=0;}}
+  function pause(auto=false) {
+    if(!game || screen!=='game' || game.phase!=='running')return;
+    stopAnimation();game.phase='paused';saveGame();updateHUD();
+    openDialog('pause',auto);
+  }
+  function resume() {
+    if(!game)return;
+    if(game.phase==='ready'||game.phase==='between'){closeDialog();updateHUD();beep('click');return;}
+    if(game.phase!=='paused')return;
+    game.phase='running';closeDialog();updateHUD();beep('click');run();
+  }
+  function closeDialog() {overlayType=null;$('#dialogBackdrop').classList.add('hidden');}
+  function dialogButton(label,fn,primary=false) {
+    const b=document.createElement('button');b.type='button';b.className='btn'+(primary?' primary':'');b.textContent=label;b.addEventListener('click',fn);$('#dialogButtons').appendChild(b);
+  }
+  function grade() {
+    if(!game || game.phase!=='won')return '—';
+    if(game.lives===20 && game.money>=400)return 'S+';
+    if(game.lives===20)return 'S';
+    if(game.lives>=17)return 'A';
+    if(game.lives>=12)return 'B';
+    return 'C';
+  }
+  function score(){return game.wave*100+game.lives*200+Math.max(0,game.money)+(game.lives===20?1000:0);}
+  function openDialog(type,auto=false) {
+    if(screen!=='game')return;
+    overlayType=type;$('#dialogBackdrop').classList.remove('hidden');$('#dialogButtons').replaceChildren();
+    if(type==='pause') {
+      $('#dialogTitle').textContent=auto?'Автоматическая пауза':'Пауза';
+      $('#dialogText').textContent=auto?'Страница была скрыта. Бой остановлен, прогресс сохранён.':'Игра остановлена. Расстановка и текущая волна сохранены.';
+      $('#dialogStats').textContent=`Волна ${game.wave}/10 · 💎 ${game.lives}/20 · 🪙 ${game.money}`;
+      dialogButton('▶ Продолжить',resume,true);
+      dialogButton(soundOn?'🔊 Выключить звук':'🔇 Включить звук',()=>{toggleSound();openDialog('pause');});
+      dialogButton('↻ Начать заново',()=>startNew(true));
+      dialogButton('⌂ Главное меню',toMenu);
+    } else if(type==='result') {
+      const won=game.phase==='won';
+      $('#dialogTitle').textContent=won?'Победа! Миссия пройдена':'Поражение';
+      $('#dialogText').textContent=won?'Все десять волн завершены. Попробуй улучшить результат, сохранив ещё больше кристаллов.':'Все защищаемые кристаллы потеряны. Продумай расположение бойцов и усиливающих кристаллов.';
+      $('#dialogStats').textContent=`${won?'Оценка '+grade()+' · Очки '+score().toLocaleString('ru-RU')+' · ':''}Волна ${game.wave}/10 · 💎 ${game.lives}/20 · Побеждено: ${game.kills} · Криты: ${game.crits}`;
+      dialogButton('↻ Новая попытка',()=>startNew(true),true);
+      dialogButton('⌂ Главное меню',toMenu);
+    }
+  }
+
+  const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+  const selectedUnit=()=>game?.units.find(u=>u.id===game.selectedUnit)||null;
+  const selectedEnemy=()=>game?.enemies.find(e=>e.id===game.selectedEnemy)||null;
+  function position(progress) {
+    if(progress<285)return{x:835-progress,y:130};
+    if(progress<460)return{x:550,y:130+progress-285};
+    return{x:550-(progress-460),y:305};
+  }
+  function segmentDistance(x,y,ax,ay,bx,by){
+    const dx=bx-ax,dy=by-ay,t=Math.max(0,Math.min(1,((x-ax)*dx+(y-ay)*dy)/(dx*dx+dy*dy)));
+    return Math.hypot(x-ax-dx*t,y-ay-dy*t);
+  }
+  function placementError(x,y){
+    if(x<29||x>831||y<30||y>390)return 'Слишком близко к краю карты.';
+    if(Math.min(segmentDistance(x,y,835,130,550,130),segmentDistance(x,y,550,130,550,305),segmentDistance(x,y,550,305,90,305))<46)return 'На дороге размещать нельзя.';
+    if(game.units.some(u=>Math.hypot(u.x-x,u.y-y)<40))return 'Здесь слишком близко другой объект.';
+    return '';
+  }
+  function crystalRadius(c){return UNIT[c.type].radii[c.level-1];}
+  function covered(c){return game.units.filter(u=>!UNIT[u.type].crystal&&distance(u,c)<=crystalRadius(c));}
+  function buffs(u){
+    const result={red:0,blue:0,yellow:0};
+    for(const c of game.units)if(UNIT[c.type].crystal && distance(c,u)<=crystalRadius(c))result[c.type]+=UNIT[c.type].values[c.level-1];
+    return result;
+  }
+  function stats(u){
+    const d=UNIT[u.type],b=buffs(u);
+    return {damage:d.damage*(1+.25*(u.level-1))*(1+b.red/100),range:d.range*(1+.06*(u.level-1))*(1+b.blue/100),
+      rate:d.rate*(1+.10*(u.level-1))*(1+b.yellow/100),crit:u.type==='sniper'?[.15,.25,.35][u.level-1]:0,
+      blast:u.type==='mage'?38+(u.level-1)*8:0,b};
+  }
+  function upgradePrice(u){return Math.ceil(UNIT[u.type].cost*.7*u.level/10)*10;}
+  function note(text){message=text;$('#notice').textContent=text;}
+  function chooseUnit(id){
+    game.selectedUnit=id;game.selectedEnemy=null;game.tool=null;
+    note('Выбран '+UNIT[selectedUnit().type].name+'. Проверяй радиус и усиления.');
+    renderUnits();renderSelection();updateShop();saveGame();beep('click');
+  }
+  function chooseEnemy(id){
+    game.selectedEnemy=id;game.selectedUnit=null;game.tool=null;
+    const e=selectedEnemy();if(!e)return;
+    note(FOE[e.type].name+': при прорыве потеряешь '+e.leak+' кристаллов.');
+    renderUnits();renderEnemies();renderSelection();updateShop();beep('click');
+  }
+  function updateShop(){
+    for(const b of $('#shop').querySelectorAll('[data-type]')){
+      b.setAttribute('aria-pressed',String(game.tool===b.dataset.type));
+      b.disabled=game.phase==='won'||game.phase==='lost';
+    }
+  }
+  function renderUnits(){
+    const selection=selectedUnit();let zones='';
+    if(selection){
+      const d=UNIT[selection.type],radius=d.crystal?crystalRadius(selection):stats(selection).range;
+      zones+=`<circle cx="${selection.x}" cy="${selection.y}" r="${radius}" fill="${d.color}" fill-opacity=".12" stroke="${d.color}" stroke-width="2" stroke-dasharray="8 6"/>`;
+      if(d.crystal)for(const u of covered(selection))zones+=`<line x1="${selection.x}" y1="${selection.y}" x2="${u.x}" y2="${u.y}" stroke="${d.color}" stroke-width="2" stroke-dasharray="4 6"/>`;
+    }
+    rangeLayer.innerHTML=zones;
+    let html='';
+    for(const u of game.units){
+      const d=UNIT[u.type],active=u.id===game.selectedUnit,boosted=!d.crystal&&Object.values(buffs(u)).some(v=>v>0);
+      const border=active?'#fff3b8':boosted?'#a6edbd':'#8baea8';
+      const shape=d.crystal?`<path d="M0 -16L14 0 0 16 -14 0Z" fill="${d.color}" stroke="#eaffff" stroke-width="1.5"/>`:`<circle r="16" fill="${d.color}"/>`;
+      html+=`<g class="entity" data-unit="${u.id}" role="button" tabindex="0" aria-label="${d.name}, уровень ${u.level}" transform="translate(${u.x} ${u.y})"><circle r="23" fill="#0b2933" stroke="${border}" stroke-width="${active?3:1.5}"/>${shape}<text text-anchor="middle" x="0" y="5" fill="#102734" font-family="system-ui,sans-serif" font-weight="800" font-size="${d.crystal?18:14}" pointer-events="none">${d.symbol}</text><circle cx="18" cy="-16" r="9" fill="#1b404e" stroke="#c8d7d1"/><text x="18" y="-12" font-family="system-ui,sans-serif" fill="white" text-anchor="middle" font-size="11" font-weight="700">${u.level}</text></g>`;
+    }
+    unitLayer.innerHTML=html;
+  }
+  function renderEnemies(){
+    let html='';
+    for(const e of game.enemies){
+      const d=FOE[e.type],p=position(e.progress),width=d.boss?54:26,top=d.size+13,ratio=Math.max(0,e.hp/e.maxhp),active=game.selectedEnemy===e.id;
+      html+=`<g class="enemy" data-enemy="${e.id}" role="button" tabindex="0" aria-label="${d.name}, прорыв ${e.leak} кристаллов" transform="translate(${p.x} ${p.y})"><circle r="${d.size+4}" fill="#19243a" stroke="${active?'#fff4b9':d.boss?'#f9dfaf':'#304252'}" stroke-width="${d.boss?3:1.5}"/><circle r="${d.size}" fill="${d.color}" stroke="#f3f0df" stroke-width="1.6"/><circle cx="-4" cy="-3" r="2.5" fill="#312d43"/><circle cx="5" cy="-3" r="2.5" fill="#312d43"/>${d.boss?'<text y="12" fill="#422432" font-size="16" font-weight="900" text-anchor="middle">★</text>':''}<rect x="${-width/2}" y="${-top}" width="${width}" height="5" rx="2" fill="#29343e"/><rect x="${-width/2}" y="${-top}" width="${width*ratio}" height="5" rx="2" fill="${d.boss?'#ffdb89':'#c4e78d'}"/>${d.boss?`<text text-anchor="middle" y="${-top-6}" fill="#fff2d3" font-size="12" font-weight="800">БОСС −${e.leak}💎</text>`:''}</g>`;
+    }
+    enemyLayer.innerHTML=html;
+    let effects='';
+    for(const f of game.effects){
+      const alpha=Math.max(.04,f.life/f.total);
+      if(f.kind==='blast')effects+=`<circle cx="${f.x}" cy="${f.y}" r="${f.radius}" stroke="#dfbbfa" stroke-width="2" stroke-opacity="${alpha*.7}" fill="#c2a1f7" fill-opacity="${alpha*.13}"/>`;
+      else if(f.kind==='crit')effects+=`<text x="${f.x}" y="${f.y-24-(1-alpha)*8}" fill="#ffe4a7" opacity="${alpha}" text-anchor="middle" font-size="13" font-weight="800">КРИТ!</text>`;
+      else effects+=`<line x1="${f.x}" y1="${f.y}" x2="${f.tx}" y2="${f.ty}" stroke="${f.color}" stroke-width="${f.width}" stroke-opacity="${alpha}" stroke-linecap="round"/>`;
+    }
+    effectLayer.innerHTML=effects;
+  }
+  function updateHUD(){
+    $('#lives').textContent=game.lives;$('#money').textContent=game.money.toLocaleString('ru-RU');
+    $('#wave').textContent=game.wave;$('#enemyCount').textContent=game.enemies.length+game.pending;
+    const status={ready:'Подготовка обороны',running:`Идёт волна ${game.wave}`,paused:`Пауза · волна ${game.wave}`,between:`Волна ${game.wave} пройдена`,won:'Победа! Все 10 волн пройдены',lost:'Поражение — кристаллы потеряны'};
+    $('#battleStatus').textContent=status[game.phase];
+    $('#startWave').disabled=!['ready','between'].includes(game.phase);
+    $('#startWave').textContent=game.wave>=10?'✓ Миссия завершена':`▶ Волна ${game.wave+1}`;
+    $('#speed').textContent='×'+game.speed;
+    renderSelection();
+  }
+  function renderSelection(){
+    const u=selectedUnit(),e=selectedEnemy(),btn=$('#upgrade');
+    btn.disabled=!u||u.level>=3||game.money<upgradePrice(u)||['lost','won'].includes(game.phase);
+    if(e){
+      const d=FOE[e.type];$('#selectedTitle').textContent=d.name+(d.boss?' · БОСС':'');
+      $('#selectedDetail').textContent=`HP ${Math.max(0,Math.ceil(e.hp))}/${e.maxhp} · Физзащита ${Math.round(e.phys)}% · Магзащита ${Math.round(e.magic)}% · При прорыве −${e.leak} 💎.`;
+      btn.textContent='Улучшить';return;
+    }
+    if(!u){
+      $('#selectedTitle').textContent=game.tool?`Разместить: ${UNIT[game.tool].name}`:'Тактика обороны';
+      $('#selectedDetail').textContent=game.tool?`Стоимость ${UNIT[game.tool].cost} монет. Нажми на свободную землю вне дороги.`:'Нажми на бойца, кристалл или противника, чтобы проверить характеристики.';
+      btn.textContent='Улучшить';return;
+    }
+    const d=UNIT[u.type];$('#selectedTitle').textContent=`${d.name} · уровень ${u.level}`;
+    if(d.crystal){
+      const all=game.units.filter(obj=>!UNIT[obj.type].crystal).length,now=covered(u).length;
+      const next=u.level<3?game.units.filter(other=>!UNIT[other.type].crystal&&distance(u,other)<=d.radii[u.level]).length:null;
+      $('#selectedDetail').textContent=`Радиус ${crystalRadius(u)} · +${d.values[u.level-1]}% к ${d.effect}. Усиливает ${now} из ${all} бойцов.${next===null?' Максимальный уровень.':` После улучшения: ${next} из ${all}.`}`;
+    } else {
+      const s=stats(u),special=u.type==='mage'?` · радиус взрыва ${s.blast}`:u.type==='sniper'?` · крит ${Math.round(s.crit*100)}% (×1,8)`:'';
+      $('#selectedDetail').textContent=`Урон ${Math.round(s.damage)} (${d.type==='magic'?'маг.':'физ.'}) · дальность ${Math.round(s.range)} · АТС ${s.rate.toFixed(2)}${special}. Баффы: сила +${s.b.red}%, дальность +${s.b.blue}%, скорость +${s.b.yellow}%.`;
+    }
+    btn.textContent=u.level>=3?'Максимум':`Улучшить · ${upgradePrice(u)} 🪙`;
+  }
+  function renderAll(){updateShop();renderUnits();renderEnemies();updateHUD();note(message);}
+  function normalType(i){if(game.wave>=4&&i%6===5)return 'psionic';if(game.wave>=3&&i%5===4)return 'armored';if(game.wave>=2&&i%3===2)return 'runner';return 'scout';}
+  function spawn(){
+    const type=game.spawnIndex>=game.normalCount?(game.wave===5?'boss5':'boss10'):normalType(game.spawnIndex);
+    game.spawnIndex++;
+    const d=FOE[type],w=game.wave-1,hp=d.hp+w*d.growth;
+    game.enemies.push({id:nextEnemyId++,type,progress:0,hp,maxhp:hp,speed:d.speed+(d.boss?0:w*1.2),reward:d.reward,leak:d.leak,
+      phys:Math.min(75,d.phys+(d.boss?0:w*1.6)),magic:Math.min(75,d.magic+(d.boss?0:w*1.4))});
+    game.pending--;
+    if(d.boss){note('⚠ Появился '+d.name+'! Прорыв: −'+d.leak+' кристалла.');beep('warning');}
+  }
+  function damage(e,amount,type){e.hp-=amount*(1-(type==='magic'?e.magic:e.phys)/100);}
+  function attacks(dt){
+    for(const u of game.units){
+      if(UNIT[u.type].crystal)continue;
+      u.cd=Math.max(0,u.cd-dt);if(u.cd>0)continue;
+      const s=stats(u);let target=null;
+      for(const e of game.enemies){
+        if(e.hp<=0)continue;
+        const p=position(e.progress);
+        if(Math.hypot(u.x-p.x,u.y-p.y)<=s.range && (!target || e.progress>target.progress))target=e;
+      }
+      if(!target)continue;
+      const p=position(target.progress);
+      if(u.type==='mage'){
+        for(const e of game.enemies){if(e.hp<=0)continue;const ep=position(e.progress);if(Math.hypot(ep.x-p.x,ep.y-p.y)<=s.blast)damage(e,s.damage*(e===target?1:.70),'magic');}
+        game.effects.push({kind:'blast',x:p.x,y:p.y,radius:s.blast,life:.30,total:.30});beep('mage');
+      }else{
+        let amount=s.damage;
+        if(u.type==='sniper'&&Math.random()<s.crit){amount*=1.8;game.crits++;game.effects.push({kind:'crit',x:p.x,y:p.y,life:.5,total:.5});}
+        damage(target,amount,'physical');
+        game.effects.push({kind:'beam',x:u.x,y:u.y,tx:p.x,ty:p.y,color:UNIT[u.type].color,width:u.type==='sniper'?3:2,life:.16,total:.16});beep('shot');
+      }
+      u.cd=1/s.rate;
+    }
+  }
+  function gameTick(dt){
+    for(const e of game.effects)e.life-=dt;
+    game.effects=game.effects.filter(e=>e.life>0);
+    game.spawnClock-=dt;
+    while(game.pending>0 && game.spawnClock<=0){spawn();game.spawnClock+=Math.max(.44,.69-game.wave*.018);}
+    for(const e of game.enemies)e.progress+=e.speed*dt;
+    attacks(dt);
+    const live=[];
+    for(const e of game.enemies){
+      if(e.hp<=0){game.money+=e.reward;game.kills++;}
+      else if(e.progress>=920){game.lives=Math.max(0,game.lives-e.leak);game.leaks++;if(FOE[e.type].boss)game.bossLeaks++;note(`${FOE[e.type].name} прорвался: −${e.leak} 💎. Осталось ${game.lives}/20.`);beep('warning');}
+      else live.push(e);
+    }
+    game.enemies=live;
+    if(game.selectedEnemy&&!selectedEnemy())game.selectedEnemy=null;
+    if(game.lives<=0){game.phase='lost';note('Кристаллы потеряны. Попробуй другую расстановку.');saveGame();beep('lose');openDialog('result');return;}
+    if(game.pending===0&&game.enemies.length===0){
+      const bonus=Math.round(game.money*.05*game.lives/20);
+      game.money+=bonus;
+      game.phase=game.wave>=10?'won':'between';
+      note(game.phase==='won'?'Миссия пройдена! Результат сохранён.':`Волна ${game.wave} пройдена. Бонус экономии: +${bonus} 🪙.`);
+      saveGame();beep(game.phase==='won'?'win':'wave');
+      if(game.phase==='won')openDialog('result');
+    }
+  }
+  function animate(now){
+    animation=0;
+    if(screen!=='game'||game.phase!=='running')return;
+    const dt=Math.min(.055,Math.max(0,(now-frameLast)/1000))*game.speed;
+    frameLast=now;gameTick(dt);renderEnemies();
+    hudElapsed+=dt;saveElapsed+=dt;
+    if(hudElapsed>=.18||game.phase!=='running'){hudElapsed=0;updateHUD();}
+    if(saveElapsed>=2.5){saveElapsed=0;saveGame();}
+    if(game.phase==='running')animation=requestAnimationFrame(animate);
+  }
+  function run(){if(animation||screen!=='game'||game.phase!=='running')return;frameLast=performance.now();animation=requestAnimationFrame(animate);}
+  function startWave(){
+    if(!game||!['ready','between'].includes(game.phase)||game.wave>=10)return;
+    game.wave++;game.normalCount=6+game.wave*2;
+    game.pending=game.normalCount+([5,10].includes(game.wave)?1:0);
+    game.spawnIndex=0;game.spawnClock=0;game.phase='running';game.selectedEnemy=null;
+    note([5,10].includes(game.wave)?`Волна ${game.wave}: в конце появится босс!`:`Началась волна ${game.wave}.`);
+    saveGame();updateHUD();beep('wave');run();
+  }
+
+  $('#shop').addEventListener('click',e=>{
+    const b=e.target.closest('[data-type]');if(!b||!game||['lost','won'].includes(game.phase))return;
+    game.tool=game.tool===b.dataset.type?null:b.dataset.type;game.selectedUnit=null;game.selectedEnemy=null;
+    note(game.tool?`Выбран ${UNIT[game.tool].name}. Установи на свободной траве.`:'Режим размещения отключён.');
+    updateShop();renderUnits();renderSelection();beep('click');
+  });
+  svg.addEventListener('click',e=>{
+    if(!game||screen!=='game'||overlayType)return;
+    const foe=e.target.closest('[data-enemy]'),obj=e.target.closest('[data-unit]');
+    if(foe){chooseEnemy(Number(foe.dataset.enemy));return;}
+    if(obj){chooseUnit(Number(obj.dataset.unit));return;}
+    if(!game.tool){note('Сначала выбери защитника или усиливающий кристалл.');return;}
+    const box=svg.getBoundingClientRect();
+    const x=Math.round((e.clientX-box.left)*860/box.width),y=Math.round((e.clientY-box.top)*420/box.height);
+    const error=placementError(x,y);
+    if(error){note(error);return;}
+    if(game.money<UNIT[game.tool].cost){note('Недостаточно монет для покупки.');return;}
+    const u=add(game.tool,x,y);game.tool=null;game.selectedUnit=u.id;game.selectedEnemy=null;
+    note(UNIT[u.type].name+' установлен. Перемещать и продавать объекты нельзя.');
+    beep('place');renderAll();saveGame();
+  });
+  svg.addEventListener('keydown',e=>{
+    if(e.key!=='Enter'&&e.key!==' ')return;
+    const foe=e.target.closest('[data-enemy]'),obj=e.target.closest('[data-unit]');
+    if(foe||obj){e.preventDefault();if(foe)chooseEnemy(Number(foe.dataset.enemy));else chooseUnit(Number(obj.dataset.unit));}
+  });
+  $('#upgrade').addEventListener('click',()=>{
+    if(!game||overlayType)return;
+    const u=selectedUnit();if(!u||u.level>=3||['lost','won'].includes(game.phase))return;
+    const price=upgradePrice(u);if(game.money<price){note('Недостаточно монет.');return;}
+    game.money-=price;u.level++;
+    note(UNIT[u.type].name+' улучшен до уровня '+u.level+'.');
+    beep('upgrade');renderAll();saveGame();
+  });
+  $('#startWave').addEventListener('click',startWave);
+  $('#pauseGame').addEventListener('click',()=>{
+    if(!game)return;
+    if(game.phase==='running')pause();
+    else if(game.phase==='paused')openDialog('pause');
+    else if(game.phase==='won'||game.phase==='lost')openDialog('result');
+    else{saveGame();openDialog('pause');}
+  });
+  $('#speed').addEventListener('click',()=>{
+    if(!game)return;game.speed=game.speed===1?2:1;updateHUD();saveGame();beep('click');
+  });
+  $('#gameSound').addEventListener('click',toggleSound);
+  $('#menuSound').addEventListener('click',toggleSound);
+  $('#newGame').addEventListener('click',()=>startNew(true));
+  $('#continueGame').addEventListener('click',continueGame);
+  const emptyBtn=document.createElement('button');emptyBtn.type='button';emptyBtn.id='newEmpty';emptyBtn.className='btn';emptyBtn.textContent='○ Пустая карта';
+  emptyBtn.addEventListener('click',()=>startNew(false));
+  $('#continueGame').insertAdjacentElement('afterend',emptyBtn);
+  document.addEventListener('visibilitychange',()=>{
+    if(document.hidden){if(game?.phase==='running'&&screen==='game')pause(true);else if(game)saveGame();}
+  });
+  window.addEventListener('pagehide',()=>{if(game){if(game.phase==='running')game.phase='paused';saveGame();stopAnimation();}});
+  window.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&screen==='game'&&game){
+      if(overlayType==='pause'&&game.phase==='paused')resume();
+      else if(game.phase==='running')pause();
+      else if(!overlayType)openDialog('pause');
+    }
+  });
+  // PWA registration never touches localStorage. Saves and settings keep their v1 keys.
+  let deferredInstallPrompt=null;
+  let waitingWorker=null;
+  let updateRequested=false;
+  let updateRegistration=null;
+  const installButton=$('#pwaInstallButton');
+  const installHint=$('#pwaInstallHint');
+  const updateBanner=$('#pwaUpdateNotice');
+  const updateButton=$('#pwaUpdateButton');
+
+  function setUpdateAvailable(worker) {
+    if (!worker || !navigator.serviceWorker?.controller) return;
+    waitingWorker=worker;
+    updateBanner.classList.remove('hidden');
+  }
+  function checkUpdates(reg) {
+    if (!reg) return;
+    if (reg.waiting) setUpdateAvailable(reg.waiting);
+    reg.update().catch(() => {});
+  }
+  function registerPwa() {
+    if (!('serviceWorker' in navigator) || !window.isSecureContext) return;
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+      if (updateRequested) window.location.reload();
+    });
+    navigator.serviceWorker.register('./sw.js',{scope:'./'}).then(reg => {
+      updateRegistration=reg;
+      if (reg.waiting) setUpdateAvailable(reg.waiting);
+      reg.addEventListener('updatefound', () => {
+        const worker=reg.installing;
+        if (!worker) return;
+        worker.addEventListener('statechange', () => {
+          if (worker.state==='installed') setUpdateAvailable(worker);
+        });
+      });
+      window.addEventListener('online', () => checkUpdates(reg));
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) checkUpdates(reg);
+      });
+      window.setInterval(() => {if (!document.hidden) checkUpdates(reg);},30*60*1000);
+    }).catch(() => {}); // Safari private mode and some browsers may refuse SW.
+  }
+  updateButton.addEventListener('click', () => {
+    // Existing game saves are independent from the service-worker cache.
+    if (game?.phase==='running' && screen==='game') pause(true);
+    if (game) saveGame();
+    if (!waitingWorker) {
+      if (updateRegistration) checkUpdates(updateRegistration);
+      return;
+    }
+    updateRequested=true;
+    updateButton.disabled=true;
+    updateButton.textContent='Обновление…';
+    waitingWorker.postMessage({type:'SKIP_WAITING'});
+    window.setTimeout(() => {
+      if (updateRequested) { updateRequested=false; updateButton.disabled=false; updateButton.textContent='Обновить игру'; }
+    },8000);
+  });
+  window.addEventListener('beforeinstallprompt',e=>{
+    e.preventDefault();
+    deferredInstallPrompt=e;
+    installButton.classList.remove('hidden');
+  });
+  installButton.addEventListener('click',async()=>{
+    if (!deferredInstallPrompt)return;
+    const prompt=deferredInstallPrompt;
+    deferredInstallPrompt=null;
+    installButton.classList.add('hidden');
+    try {await prompt.prompt();await prompt.userChoice;} catch (_) {}
+  });
+  window.addEventListener('appinstalled',()=>{
+    deferredInstallPrompt=null;
+    installButton.classList.add('hidden');
+    installHint.classList.add('hidden');
+  });
+  const isIos=/iPhone|iPad|iPod/.test(navigator.userAgent) ||
+    (navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const installed=window.matchMedia?.('(display-mode: standalone)').matches ||
+    window.navigator.standalone===true;
+  if (isIos && !installed) installHint.classList.remove('hidden');
+
+  loadSettings();syncMenu();registerPwa();
+})();
+
+</script>
+</body></html>
