@@ -1,7 +1,7 @@
 'use strict';
 // PWA cache controls only InkAndMilk Astral Defense. Never clears browser saves.
 const CACHE_PREFIX='inkandmilk-astral-defense-pwa-';
-const CACHE_NAME=CACHE_PREFIX+'0.6.1';
+const CACHE_NAME=CACHE_PREFIX+'0.6.1-7406a7d83c6c';
 const APP_SHELL=['./index.html','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png','./icons/icon-maskable-512.png','./icons/apple-touch-icon.png'];
 const OFFLINE_PAGE_URL=new URL('./index.html',self.registration.scope).href;
 
