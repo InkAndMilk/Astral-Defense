@@ -1,4 +1,5 @@
 'use strict';
+// Deployment refresh marker: no runtime behavior changes.
 // PWA cache controls only InkAndMilk Astral Defense. Never clears browser saves.
 const CACHE_PREFIX='inkandmilk-astral-defense-pwa-';
 const CACHE_NAME=CACHE_PREFIX+'0.7.0.1-e59bc1ba468f';
